@@ -1,33 +1,34 @@
 const testimonials=[
 
 {
-name:"Sarah Johnson",
-role:"Community Member",
-text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+name:"Donovan Simon",
+role:"President of Jamaican-Canadian Association Alberta",
+text:"Dr Unati is an amazing and a true professional. I wish every male in our community gets a chance to benefit from what Dr Unati is doing. It is refreshing, revolutionary and relevant to our men, no matter their age, stage or culture. I have found her sessions to be real, caring and filled with a passion that is engaging and contagious. From watching her programs it has also become very evident to me that so much has been missed by many of our health professionals, and ourselves, over the years. It is great that she has found within her to start to highlight these issues and bring them to us. Thanks for what you you do Dr. Unati. It is important and my hope is that it reaches the core of the males in our community. People are being helped and we are grateful for you taking the lead on shining the light in this area."
+
 },
 
 {
-name:"Michael Brown",
-role:"Patient",
-text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+name:"Phumza Dyani, MBA, PMI-C",
+role:"Chief Marketing Officer- Broadband Infraco",
+text:"I am so happy there was something I could say to an amazing soul like you. You are going to be such a blessing to Corporates yhaz Sisi. You are such a ball of beautiful energy and it was so great to have you. My team still talks about you to this day."
 },
 
 {
-name:"Jennifer Smith",
-role:"Health Advocate",
-text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+name:"Pastor Godlove",
+role:"",
+text:"The power of a sin or trauma over a person's life is secrecy or lack of an open conversation. The power is broken when it comes to light. That is the first step to freedom. Thanks Dr. Unati."
 },
 
 {
-name:"David Wilson",
-role:"Healthcare Professional",
-text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+name:"Nwabisa",
+role:"",
+text:"Power of words from a parent! Thanks Doc. What a powerful presentation and wonderful speaker. Thank you."
 },
 
 {
-name:"Ashley Davis",
-role:"Community Member",
-text:"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+name:"EAP Nigeria",
+role:"",
+text:"Our parents doing, our current realities. As parents or aspiring parents on this platform, we can do better by changing this narrative. Be more objective in our actions. Trauma is a key factor for emotional instability I appreciate you Dr Unati"
 }
 
 ];
