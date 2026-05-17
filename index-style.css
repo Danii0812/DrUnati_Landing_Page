@@ -458,12 +458,18 @@ section { padding: 110px 8%; }
 }
 
 #testimonial-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 }
 
+/* Fixed width so cards form clean rows of 3 on wide screens.
+   Any leftover cards (e.g. the 4th and 5th of 5) auto-center. */
 .testimonial {
+  flex: 0 0 calc(33.333% - 16px);
+  max-width: 380px;
+  min-width: 260px;
   background: var(--white);
   border-radius: 20px;
   padding: 36px 30px 28px;
