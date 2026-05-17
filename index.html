@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr M Health Corner</title>
+
+<link rel="stylesheet" href="index-style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <div class="logo">
+    <span class="logo-accent">DR M</span>
+    <span class="logo-main">HEALTH CORNER</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#reviews">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+
+<!-- ── HERO ── -->
+<section class="hero">
+
+  <div class="hero-content fade-up">
+    <span class="overline-tag">Family Physician &nbsp;•&nbsp; Speaker &nbsp;•&nbsp; Author</span>
+    <h1 class="hero-title">
+      DR M<br>
+      <em>Health Corner</em>
+    </h1>
+    <p class="hero-sub">
+      Empowering communities through healthcare,<br>
+      education and maternal wellness.
+    </p>
+    <div class="hero-ctas">
+      <a href="book.html" class="btn-primary">Join Black Birth Revolution</a>
+      <a href="#about" class="btn-ghost">Learn More</a>
+    </div>
+  </div>
+
+  <div class="hero-image-wrap fade-up delay-1">
+    <div class="hero-image-decor"></div>
+    <img src="images/image.png" alt="Dr. Unati Makiwane" class="hero-img">
+  </div>
+
+</section>
+
+
+<!-- ── ABOUT ── -->
+<section id="about">
+
+  <div class="section-label fade-up">
+    <span class="label-rule"></span>
+    <span>ABOUT DR UNATI</span>
+    <span class="label-rule"></span>
+  </div>
+
+  <div class="about-grid">
+
+    <div class="about-image-wrap fade-up">
+      <img src="images/image.png" alt="Dr. Unati Makiwane">
+    </div>
+
+    <div class="about-content fade-up delay-1">
+      <h2 class="section-heading">A Physician.<br>A Voice. A Movement.</h2>
+      <p>
+        Dr. Unati Makiwane is a family physician with 20 years of experience with special interest in mental health and chronic disease prevention. She comes from a family of healthcare providers, and is inspired to empower patients to better health.
+      </p>
+      <p>
+        She is a CanReach Fellow, pursuing Masters in Healthcare Leadership at the University of Warwick. She is the first Female Physician in Canada to host a virtual Men's Health Talk Show which runs bi-weekly where she interacts with a global community of men seeking to lead healthy lives mentally, physically and spiritually.
+      </p>
+      <p>
+        She is the <strong>Founder &amp; CEO</strong> of <strong>Dr. M Health Corner</strong> and <strong>Black Birth Revolution</strong> — a Consultation Company doing Executive Coaching in Corporate, NGO, Schools and NPOs.
+      </p>
+      <p>
+        In June 2021, she worked with the UN Affiliated Agency — The Federation of International Gender and Human Rights. In July 2021, she shared the stage with Dr. Martin Luther King III at the World Diversity Conference.
+      </p>
+      <a href="book.html" class="btn-primary" style="margin-top:12px;">Discover the Book</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ── EVENTS ── -->
+<section id="events">
+
+  <div class="section-label fade-up">
+    <span class="label-rule"></span>
+    <span>IN THE SPOTLIGHT</span>
+    <span class="label-rule"></span>
+  </div>
+
+  <h2 class="section-heading text-light fade-up">Event Highlights</h2>
+
+  <div class="video-wrap fade-up">
+    <video controls>
+      <source src="images/slideshow.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+</section>
+
+
+<!-- ── TESTIMONIALS ── -->
+<section id="reviews">
+
+  <div class="section-label fade-up">
+    <span class="label-rule"></span>
+    <span>TESTIMONIALS</span>
+    <span class="label-rule"></span>
+  </div>
+
+  <h2 class="section-heading fade-up">What People Say</h2>
+
+  <div id="testimonial-container"></div>
+
+</section>
+
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+
+  <div class="contact-inner fade-up">
+    <div class="section-label">
+      <span class="label-rule"></span>
+      <span>GET IN TOUCH</span>
+      <span class="label-rule"></span>
+    </div>
+
+    <h2 class="section-heading text-light">Contact Dr Unati</h2>
+
+    <p class="contact-tagline">
+      Healing &nbsp;•&nbsp; Education &nbsp;•&nbsp; Wellness &nbsp;•&nbsp; Sisterhood
+    </p>
+
+    <a href="#" class="btn-primary">Send a Message</a>
+
+    <!-- SOCIAL LINKS -->
+    <div class="social-links">
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">Instagram</a>
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">Facebook</a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+        observer.unobserve(el.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Close mobile nav on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
