@@ -436,22 +436,52 @@ section { padding: 110px 8%; }
 #events .section-label { color: #C4975A; }
 #events .label-rule { background: #C4975A; }
 
-.video-wrap {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(196, 151, 90, 0.2);
+/* ── VIDEO GRID ── */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 14px;
 }
 
-.video-wrap video {
+.video-item {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+.video-item video {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
+/* Landscape: full width, 16:9 */
+.vid-landscape {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+}
 
-/* ═══════════════════════════════════════
-   TESTIMONIALS
-═══════════════════════════════════════ */
+/* Square: half width, 1:1 */
+.vid-square {
+  grid-column: span 1;
+  aspect-ratio: 1 / 1;
+}
+
+/* TikTok / Portrait: 9:16 — sits in a row with the last landscape */
+.vid-portrait {
+  grid-column: span 1;
+  aspect-ratio: 9 / 16;
+}
+
+/* Last landscape fills alongside portrait, stretches to match height */
+.vid-landscape-right {
+  grid-column: span 1;
+  aspect-ratio: 9 / 16;  /* match portrait height so the row stays clean */
+}
 
 /* ═══════════════════════════════════════
    COLLABORATIONS & SPEAKING ENGAGEMENTS
@@ -561,6 +591,7 @@ section { padding: 110px 8%; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
   gap: 24px;
 }
 
@@ -618,6 +649,123 @@ section { padding: 110px 8%; }
   color: var(--gold);
   font-weight: 600;
   text-transform: uppercase;
+}
+
+
+/* ── TESTIMONIAL PHOTO SLIDESHOW ── */
+
+.review-slideshow {
+  margin-top: 60px;
+  position: relative;
+}
+
+.review-slideshow-label {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.review-slideshow-label::before,
+.review-slideshow-label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.slideshow-track-wrap {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.slideshow-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slideshow-slide {
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(74, 55, 40, 0.12);
+  background: var(--white);
+}
+
+.slideshow-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  background: var(--white);
+}
+
+.slideshow-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.slideshow-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-mid);
+  background: var(--white);
+  color: var(--gold);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  line-height: 1;
+}
+
+.slideshow-btn:hover {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+}
+
+.slideshow-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.slideshow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sand);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.slideshow-dot.active {
+  background: var(--gold);
+  transform: scale(1.25);
+}
+
+@media (max-width: 768px) {
+  .slideshow-slide img {
+    max-height: 380px;
+  }
 }
 
 
@@ -722,6 +870,23 @@ section { padding: 110px 8%; }
 
   /* About */
   .about-content { text-align: center; }
+
+  /* Video grid: single column on mobile */
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vid-landscape,
+  .vid-square,
+  .vid-portrait,
+  .vid-landscape-right {
+    grid-column: span 1;
+  }
+
+  .vid-landscape      { aspect-ratio: 16 / 9; }
+  .vid-square         { aspect-ratio: 1 / 1; }
+  .vid-portrait       { aspect-ratio: 9 / 16; }
+  .vid-landscape-right { aspect-ratio: 16 / 9; }
 
   /* Headings */
   .section-heading { font-size: 32px; }

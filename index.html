@@ -72,7 +72,7 @@
   <div class="about-grid">
 
     <div class="about-image-wrap fade-up">
-      <img src="images/image.png" alt="Dr. Unati Makiwane">
+      <img src="images/about.jpg" alt="Dr. Unati Makiwane">
     </div>
 
     <div class="about-content fade-up delay-1">
@@ -108,11 +108,48 @@
 
   <h2 class="section-heading text-light fade-up">Event Highlights</h2>
 
-  <div class="video-wrap fade-up">
-    <video controls>
-      <source src="images/slideshow.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <div class="video-grid fade-up">
+
+    <!-- Video 1: Landscape (existing) -->
+    <div class="video-item vid-landscape">
+      <video controls>
+        <source src="images/slideshow.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Video 2: Square -->
+    <div class="video-item vid-square">
+      <video controls>
+        <source src="images/vid1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Video 3: Square -->
+    <div class="video-item vid-square">
+      <video controls>
+        <source src="images/vid4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Video 4: TikTok / Portrait -->
+    <div class="video-item vid-portrait">
+      <video controls>
+        <source src="images/vid2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Video 5: Landscape -->
+    <div class="video-item vid-landscape-right">
+      <video controls>
+        <source src="images/vid3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
   </div>
 
 </section>
@@ -230,6 +267,34 @@
 
   <div id="testimonial-container"></div>
 
+  <!-- SCREENSHOT / PHOTO TESTIMONIALS SLIDESHOW -->
+  <!-- To add more photos: add a new .slideshow-slide <div> inside #slideshow-track -->
+  <div class="review-slideshow fade-up">
+    <div class="review-slideshow-label">SCREENSHOT REVIEWS</div>
+
+    <div class="slideshow-track-wrap">
+      <div class="slideshow-track" id="slideshow-track">
+        <div class="slideshow-slide">
+          <img src="images/ssrev.jpeg" alt="Screenshot review 1">
+        </div>
+        <div class="slideshow-slide">
+          <img src="images/ssrev1.jpeg" alt="Screenshot review 2">
+        </div>
+        <!-- Add more slides here:
+        <div class="slideshow-slide">
+          <img src="images/review3.png" alt="Screenshot review 3">
+        </div>
+        -->
+      </div>
+    </div>
+
+    <div class="slideshow-controls">
+      <button class="slideshow-btn" id="ss-prev" aria-label="Previous">&#8592;</button>
+      <div class="slideshow-dots" id="ss-dots"></div>
+      <button class="slideshow-btn" id="ss-next" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+
 </section>
 
 
@@ -253,9 +318,9 @@
 
     <!-- SOCIAL LINKS -->
     <div class="social-links">
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram">Instagram</a>
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook">Facebook</a>
-      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+      <a href="https://www.instagram.com/drmhealthcorner?igsh=MXFvZXozdno3dnhndA==" target="_blank" aria-label="Instagram">Instagram</a>
+      <a href="https://www.facebook.com/share/1Prdn9FG22/" target="_blank" aria-label="Facebook">Facebook</a>
+      <a href="https://www.linkedin.com/posts/dr-unati-makiwane-9a4546172_alphafemaleathome-alphafemaleintheworkplace-share-7050269230646112256-aKfn?utm_source=share&utm_medium=member_desktop&rcm=ACoAAENoo_cBy0oQ0X-5Tv7xK0D24VdAOyD4u9I" target="_blank" aria-label="LinkedIn">LinkedIn</a>
     </div>
 
   </div>
@@ -287,6 +352,140 @@
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
   });
+</script>
+
+
+<script>
+  // ── PHOTO REVIEW SLIDESHOW ──
+  (function() {
+    const track   = document.getElementById('slideshow-track');
+    const dotsEl  = document.getElementById('ss-dots');
+    const btnPrev = document.getElementById('ss-prev');
+    const btnNext = document.getElementById('ss-next');
+
+    if (!track) return;
+
+    const slides = Array.from(track.querySelectorAll('.slideshow-slide'));
+    const count  = slides.length;
+    let current  = 0;
+
+    function setSlideSizes() {
+      const w = track.parentElement.offsetWidth;
+      slides.forEach(s => { s.style.width = w + 'px'; });
+    }
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      });
+    }
+
+    function updateDots() {
+      dotsEl.querySelectorAll('.slideshow-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function goTo(idx) {
+      current = (idx + count) % count;
+      const w = track.parentElement.offsetWidth + 20;
+      track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      updateDots();
+    }
+
+    btnPrev.addEventListener('click', () => goTo(current - 1));
+    btnNext.addEventListener('click', () => goTo(current + 1));
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+      if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+
+    let touchStartX = 0;
+    track.parentElement.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.parentElement.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+    });
+
+    setSlideSizes();
+    buildDots();
+    window.addEventListener('resize', () => { setSlideSizes(); goTo(current); });
+  })();
+</script>
+
+
+<script>
+  // ── PHOTO REVIEW SLIDESHOW ──
+  (function() {
+    const track   = document.getElementById('slideshow-track');
+    const dotsEl  = document.getElementById('ss-dots');
+    const btnPrev = document.getElementById('ss-prev');
+    const btnNext = document.getElementById('ss-next');
+
+    if (!track) return;
+
+    const slides = Array.from(track.querySelectorAll('.slideshow-slide'));
+    const count  = slides.length;
+    let current  = 0;
+
+    function setSlideSizes() {
+      const w = track.parentElement.offsetWidth;
+      slides.forEach(s => { s.style.width = w + 'px'; });
+    }
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      });
+    }
+
+    function updateDots() {
+      dotsEl.querySelectorAll('.slideshow-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function goTo(idx) {
+      current = (idx + count) % count;
+      const w = track.parentElement.offsetWidth + 20;
+      track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      updateDots();
+    }
+
+    btnPrev.addEventListener('click', () => goTo(current - 1));
+    btnNext.addEventListener('click', () => goTo(current + 1));
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') goTo(current - 1);
+      if (e.key === 'ArrowRight') goTo(current + 1);
+    });
+
+    let touchStartX = 0;
+    track.parentElement.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.parentElement.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+    });
+
+    setSlideSizes();
+    buildDots();
+    window.addEventListener('resize', () => { setSlideSizes(); goTo(current); });
+  })();
 </script>
 
 </body>
