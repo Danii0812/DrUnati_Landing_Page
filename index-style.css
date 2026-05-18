@@ -453,6 +453,106 @@ section { padding: 110px 8%; }
    TESTIMONIALS
 ═══════════════════════════════════════ */
 
+/* ═══════════════════════════════════════
+   COLLABORATIONS & SPEAKING ENGAGEMENTS
+═══════════════════════════════════════ */
+
+#collaborations {
+  background: var(--bg-about);
+}
+
+.collab-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.collab-card {
+  flex: 0 0 calc(20% - 13px);
+  min-width: 180px;
+  max-width: 260px;
+  border-radius: 16px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.collab-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(74, 55, 40, 0.15);
+}
+
+/* colour variants matching Canva reference */
+.collab-dark {
+  background: #8B7355;
+  color: var(--white);
+}
+
+.collab-light {
+  background: #C4B49A;
+  color: var(--white);
+}
+
+.collab-cream {
+  background: #F5F0E8;
+  color: var(--walnut);
+  border: 1px solid var(--sand);
+}
+
+.collab-card p {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.collab-card small {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.collab-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.25);
+  color: inherit;
+  width: fit-content;
+}
+
+.collab-cream .collab-tag {
+  background: rgba(150, 112, 63, 0.15);
+  color: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .collab-card {
+    flex: 0 0 calc(33.333% - 11px);
+  }
+}
+
+@media (max-width: 600px) {
+  .collab-card {
+    flex: 0 0 calc(50% - 8px);
+  }
+}
+
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+
 #reviews {
   background: var(--bg-reviews);
 }
