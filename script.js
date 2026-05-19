@@ -8,9 +8,9 @@ text:"Dr Unati is an amazing and a true professional. I wish every male in our c
 },
 
 {
-name:"Phumza Dyani, MBA, PMI-CP",
-role:"Chief Marketing & Sales Officer - Broadband Infraco",
-text:"We loved your work Dr. Unati, my team felt heard as you journeyed with them through their own challenges. It was such a cathartic experience!"
+name:"Phumza Dyani, MBA, PMI-C",
+role:"Chief Marketing Officer- Broadband Infraco",
+text:"I am so happy there was something I could say to an amazing soul like you. You are going to be such a blessing to Corporates yhaz Sisi. You are such a ball of beautiful energy and it was so great to have you. My team still talks about you to this day."
 },
 
 {
@@ -29,12 +29,6 @@ text:"Power of words from a parent! Thanks Doc. What a powerful presentation and
 name:"EAP Nigeria",
 role:"",
 text:"Our parents doing, our current realities. As parents or aspiring parents on this platform, we can do better by changing this narrative. Be more objective in our actions. Trauma is a key factor for emotional instability I appreciate you Dr Unati"
-}
-
-{
-name:"@drsolowookere",
-role:"",
-text:"Well done DR M Health Corner! EAP Nigeria is really looking forward to having you come share your knowledge with us again!!"
 }
 
 ];
