@@ -20,17 +20,29 @@
     <span class="logo-accent">DR M</span>
     <span class="logo-main">HEALTH CORNER</span>
   </div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#collaborations">Collaborations</a></li>
     <li><a href="#events">Events</a></li>
     <li><a href="#reviews">Testimonials</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<!-- Full-screen mobile overlay -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#collaborations">Collaborations</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#reviews">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
 
 
 <!-- ── HERO ── -->
@@ -321,10 +333,17 @@
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  // Close mobile nav on link click
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
-  });
+  // Mobile nav overlay
+  const navToggle = document.getElementById('nav-toggle');
+  const overlay   = document.getElementById('mobile-nav-overlay');
+  const closeBtn  = document.getElementById('mobile-nav-close');
+
+  function openNav()  { overlay.classList.add('open');    navToggle.classList.add('is-open'); }
+  function closeNav() { overlay.classList.remove('open'); navToggle.classList.remove('is-open'); }
+
+  navToggle.addEventListener('click', () => overlay.classList.contains('open') ? closeNav() : openNav());
+  closeBtn.addEventListener('click', closeNav);
+  overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
 </script>
 
 </body>

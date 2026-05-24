@@ -133,18 +133,22 @@ nav a:hover {
   color: #1a1a1a;
 }
 
-/* Hero image — full height, flush to the right edge */
+/* Hero image — fit the full image within the column */
 .hero-right {
   width: 100%;
-  height: 90vh;
+  height: 60vh;
   overflow: hidden;
+  background: var(--charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-right img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center center;
   display: block;
 }
 
@@ -282,7 +286,590 @@ nav a:hover {
 }
 
 
-/* ── RESPONSIVE ── */
+
+
+/* ═══════════════════════════════════════
+   SECTION 4: INVEST IN BIRTH JUSTICE
+═══════════════════════════════════════ */
+
+.invest-section {
+  background: #0D0907;
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* ── HERO BANNER ── */
+
+.invest-hero {
+  position: relative;
+  min-height: 75vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.invest-hero-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 75vh;
+}
+
+.invest-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.invest-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(13,9,7,0.3), rgba(13,9,7,0.1));
+}
+
+.invest-hero-content {
+  padding: 60px 6% 60px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #0D0907;
+}
+
+.invest-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.invest-logo-icon {
+  color: var(--gold);
+  font-size: 20px;
+}
+
+.invest-logo-top {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.invest-logo-top em {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--gold);
+}
+
+.invest-logo-bottom {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--gold);
+  line-height: 1.2;
+}
+
+.invest-badge {
+  margin-left: auto;
+  background: var(--maroon);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.5;
+  padding: 10px 14px;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invest-tagline {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.invest-tagline strong {
+  color: var(--gold);
+}
+
+.invest-headline {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 900;
+  line-height: 1.0;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.invest-headline-gold {
+  color: #C9874C;
+}
+
+.invest-cursive {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(22px, 3vw, 36px);
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.invest-desc {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.8);
+  max-width: 440px;
+}
+
+.invest-desc strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+
+/* ── MISSION BAR ── */
+
+.invest-mission-bar {
+  background: #F5EDE1;
+  color: #2E1A0E;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 8%;
+  border-left: 6px solid var(--maroon);
+}
+
+.invest-mission-icon {
+  font-size: 28px;
+  color: var(--maroon);
+  flex-shrink: 0;
+}
+
+.invest-mission-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+.invest-mission-sub {
+  font-size: 13px;
+  font-weight: 300;
+  color: #6B4F3A;
+}
+
+
+/* ── IMPACT + TIERS BODY ── */
+
+.invest-body {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 0;
+  background: #14100D;
+}
+
+.invest-impact {
+  padding: 60px 6% 60px 8%;
+  border-right: 1px solid rgba(201,168,76,0.2);
+}
+
+.invest-impact-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.invest-impact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.invest-impact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.invest-impact-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.invest-impact-list strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  margin-bottom: 3px;
+}
+
+.invest-impact-list p {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+.invest-tiers-wrap {
+  padding: 60px 8% 60px 6%;
+}
+
+.invest-tiers-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 32px;
+}
+
+.invest-tiers-title em {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+/* Price tag in hero */
+.invest-price-tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 24px;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid rgba(201,168,76,0.4);
+  padding: 12px 24px;
+  border-radius: 50px;
+}
+
+.invest-price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.invest-price-period {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1px;
+}
+
+/* Benefits grid — 2x2 */
+.invest-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.invest-benefit-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 14px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.invest-benefit-card:hover {
+  background: rgba(201,168,76,0.08);
+}
+
+.invest-benefit-card span {
+  font-size: 22px;
+}
+
+.invest-benefit-card strong {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--gold);
+}
+
+.invest-benefit-card p {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}
+
+/* Membership CTA card */
+.invest-membership-cta {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: linear-gradient(135deg, var(--maroon) 0%, #5C2A2A 100%);
+  border-radius: 20px;
+  padding: 32px 28px;
+  border: 1px solid rgba(201,168,76,0.3);
+}
+
+.invest-membership-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 110px;
+}
+
+.mem-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.mem-period {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+
+.invest-membership-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mem-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+.mem-sub {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 10px;
+}
+
+.mem-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* Donation tier styles kept for reference but replaced by above */
+.invest-tiers { display: none; }
+.invest-monthly { display: none; }
+
+
+/* ── VISION + DONATE FOOTER ── */
+
+.invest-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #0D0907;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+
+.invest-vision {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  padding: 60px 5% 60px 8%;
+  border-right: 1px solid rgba(201,168,76,0.15);
+}
+
+.invest-vision-img-wrap {
+  width: 120px;
+  height: 160px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.invest-vision-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.invest-vision-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.invest-vision-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.invest-vision-list li {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.8);
+}
+
+.invest-vision-cursive {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.invest-vision-sub {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+}
+
+.invest-donate {
+  padding: 60px 8% 60px 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.invest-donate-cursive {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(32px, 3.5vw, 50px);
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.invest-donate-desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+.invest-donate-bold {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.invest-donate-cursive2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 32px;
+}
+
+.btn-donate {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--gold);
+  color: #0D0907;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  align-self: flex-start;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.btn-donate:hover {
+  background: #E8C46A;
+  transform: translateY(-2px);
+}
+
+
+/* ── CONTACT STRIP ── */
+
+.invest-contact-strip {
+  background: #080503;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 28px 8%;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+
+.invest-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.invest-contact-icon {
+  font-size: 22px;
+  opacity: 0.7;
+}
+
+.invest-contact-item small {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 3px;
+}
+
+.invest-contact-item p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+}
+
+
+/* ── INVEST RESPONSIVE ── */
+
+@media (max-width: 900px) {
+  .invest-hero        { grid-template-columns: 1fr; }
+  .invest-hero-img-wrap { min-height: 40vh; }
+  .invest-body        { grid-template-columns: 1fr; }
+  .invest-impact      { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .invest-benefits-grid { grid-template-columns: 1fr 1fr; }
+  .invest-membership-cta { flex-direction: column; text-align: center; }
+  .invest-footer      { grid-template-columns: 1fr; }
+  .invest-vision      { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
+}
+
+@media (max-width: 600px) {
+  .invest-benefits-grid { grid-template-columns: 1fr; }
+  .invest-vision      { flex-direction: column; }
+  .invest-contact-strip { flex-direction: column; align-items: flex-start; }
+  .btn-donate { font-size: 11px; padding: 14px 20px; }
+}
 
 @media (max-width: 768px) {
 
@@ -295,29 +882,17 @@ nav a:hover {
     padding: 60px 6%;
   }
 
-  .hero-title {
-    font-size: 42px;
-  }
+  .hero-title { font-size: 42px; }
+  .showcase-title { font-size: 38px; }
 
-  .showcase-title {
-    font-size: 38px;
-  }
-
-  .hero-right {
-    height: 320px;
-  }
-
-  .about-left {
-    height: 280px;
-  }
+  .hero-right { height: 320px; }
+  .about-left { height: 280px; }
 
   .book-cover-wrap {
     width: 180px;
     height: 260px;
   }
 
-  .hero-sub {
-    margin: 0 auto 36px;
-  }
+  .hero-sub { margin: 0 auto 36px; }
 
 }
