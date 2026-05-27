@@ -71,7 +71,7 @@
   <div class="showcase-left">
     <!-- book cover sits inside .book-cover-wrap which constrains it -->
     <div class="book-cover-wrap">
-      <img src="images/img3.png" alt="Black Birth Revolution Book Cover">
+      <img src="images/bbrcover.png" alt="Black Birth Revolution Book Cover">
     </div>
   </div>
 
@@ -211,6 +211,25 @@
         <div class="invest-membership-price">
           <span class="mem-amount">$19.99</span>
           <span class="mem-period">per month</span>
+          <!-- Currency converter -->
+          <div class="currency-widget">
+            <select class="currency-select" id="currency-select" onchange="convertCurrency()">
+              <option value="USD">USD $</option>
+              <option value="CAD">CAD $</option>
+              <option value="GBP">GBP £</option>
+              <option value="EUR">EUR €</option>
+              <option value="ZAR">ZAR R</option>
+              <option value="NGN">NGN ₦</option>
+              <option value="GHS">GHS ₵</option>
+              <option value="AUD">AUD $</option>
+              <option value="NZD">NZD $</option>
+              <option value="KES">KES KSh</option>
+              <option value="JPY">JPY ¥</option>
+              <option value="INR">INR ₹</option>
+            </select>
+            <p class="currency-result" id="currency-result">≈ $19.99 USD</p>
+            <p class="currency-note" id="currency-note">Loading live rates…</p>
+          </div>
         </div>
         <div class="invest-membership-details">
           <p class="mem-title">Private Facebook Membership</p>
@@ -229,7 +248,7 @@
 
     <div class="invest-vision">
       <div class="invest-vision-img-wrap">
-        <img src="images/img3.png" alt="Community of women">
+        <img src="images/bbrcover.png" alt="Community of women">
       </div>
       <div class="invest-vision-text">
         <p class="invest-vision-label">THIS COMMUNITY IS FOR YOU IF</p>
@@ -271,6 +290,13 @@
       </div>
     </div>
     <div class="invest-contact-item">
+      <span class="invest-contact-icon">📸</span>
+      <div>
+        <small>INSTAGRAM</small>
+        <a href="https://instagram.com/placeholder" target="_blank" class="invest-contact-link">@drmhealthcorner</a>
+      </div>
+    </div>
+    <div class="invest-contact-item">
       <span class="invest-contact-icon">♥</span>
       <div>
         <small>FOLLOW. SHARE. SUPPORT.</small>
@@ -280,6 +306,211 @@
   </div>
 
 </section>
+
+
+<!-- ── SUBSCRIBE SECTION ── -->
+<div class="subscribe-section">
+  <h2 class="subscribe-title">Subscribe to Our Emails</h2>
+  <p class="subscribe-sub">Subscribe to our mailing list for insider news, community updates, and movement moments.</p>
+  <div class="subscribe-form-wrap">
+    <form class="subscribe-form" id="subscribe-form" onsubmit="handleSubscribe(event)">
+      <input type="email" id="subscribe-email" class="subscribe-input" placeholder="Your email address" required>
+      <button type="submit" class="subscribe-btn" aria-label="Subscribe">&#8594;</button>
+    </form>
+    <p class="subscribe-success" id="subscribe-success">♥ Thank you for subscribing! We'll be in touch soon.</p>
+  </div>
+</div>
+
+
+<!-- ── SITE FOOTER ── -->
+<footer class="site-footer">
+  <p class="site-footer-copy">© 2026 Black Birth Revolution. All Rights Reserved.</p>
+  <button class="site-footer-link" onclick="document.getElementById('privacy-modal').classList.add('active')">Privacy Policy &amp; Legal</button>
+</footer>
+
+
+<!-- ── PRIVACY POLICY MODAL ── -->
+<div class="privacy-modal" id="privacy-modal">
+  <div class="privacy-modal-box">
+
+    <button class="privacy-modal-close" onclick="document.getElementById('privacy-modal').classList.remove('active')" aria-label="Close">✕</button>
+
+    <!-- ALL RIGHTS RESERVED -->
+    <div class="privacy-block">
+      <h2 class="privacy-main-title">Black Birth Revolution</h2>
+      <h3 class="privacy-section-title">All Rights Reserved</h3>
+      <p class="privacy-copy-line">© 2026 Black Birth Revolution. All Rights Reserved.</p>
+      <p>All materials displayed on this website, including but not limited to logos, graphics, branding, videos, photography, educational resources, written content, movement frameworks, course materials, downloads, and digital products are the exclusive intellectual property of Black Birth Revolution unless otherwise stated.</p>
+      <p>No content from this website may be copied, reproduced, republished, uploaded, transmitted, distributed, modified, sold, licensed, or otherwise used without prior written consent from Black Birth Revolution.</p>
+      <p>The Black Birth Revolution name, slogans, concepts, campaigns, and original media are protected under applicable copyright, trademark, and intellectual property laws.</p>
+      <p>Unauthorized use of any materials may violate copyright, trademark, and other applicable laws and may result in legal action.</p>
+      <p>For permissions, licensing inquiries, collaborations, or media requests, please contact:<br>
+        <strong>Dr. Unati Makiwane</strong><br>
+        Email: <a href="mailto:drunati@drmhealthcorner.com">drunati@drmhealthcorner.com</a><br>
+        Website: <a href="https://www.drmhealthcorner.com" target="_blank">Dr M Health Corner</a>
+      </p>
+    </div>
+
+    <hr class="privacy-divider">
+
+    <!-- PRIVACY POLICY -->
+    <div class="privacy-block">
+      <h3 class="privacy-section-title">Privacy Policy</h3>
+      <p class="privacy-effective">Effective Date: May 24, 2026</p>
+      <p>Black Birth Revolution values your privacy and is committed to protecting your personal information.</p>
+
+      <h4 class="privacy-sub-title">Information We Collect</h4>
+      <p>We may collect personal information that you voluntarily provide, including:</p>
+      <ul class="privacy-list">
+        <li>Name</li>
+        <li>Email address</li>
+        <li>Phone number</li>
+        <li>Donation information</li>
+        <li>Event registrations</li>
+        <li>Newsletter subscriptions</li>
+        <li>Community membership information</li>
+      </ul>
+      <p>We may also collect limited non-personal data such as browser type, device information, and website analytics to improve user experience.</p>
+
+      <h4 class="privacy-sub-title">How We Use Your Information</h4>
+      <p>Your information may be used to:</p>
+      <ul class="privacy-list">
+        <li>Provide updates and newsletters</li>
+        <li>Respond to inquiries</li>
+        <li>Process donations or registrations</li>
+        <li>Improve website functionality</li>
+        <li>Share educational resources and community opportunities</li>
+        <li>Support movement-related communications</li>
+      </ul>
+      <p>We do not sell, rent, or trade your personal information to third parties.</p>
+
+      <h4 class="privacy-sub-title">Data Protection</h4>
+      <p>We implement reasonable security measures to protect your information from unauthorized access, disclosure, or misuse. However, no method of online transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+      <h4 class="privacy-sub-title">Third-Party Services</h4>
+      <p>This website may use third-party platforms such as email marketing providers, donation processors, social media integrations, or analytics services. These services may collect information in accordance with their own privacy policies.</p>
+
+      <h4 class="privacy-sub-title">Cookies</h4>
+      <p>Our website may use cookies and similar technologies to improve browsing experience and analyze website traffic. Users may disable cookies through their browser settings if preferred.</p>
+
+      <h4 class="privacy-sub-title">Your Rights</h4>
+      <p>You may request to:</p>
+      <ul class="privacy-list">
+        <li>Access your personal data</li>
+        <li>Correct inaccurate information</li>
+        <li>Unsubscribe from communications</li>
+        <li>Request deletion of your information where applicable</li>
+      </ul>
+      <p>To make a request, please contact us at <a href="mailto:drunati@drmhealthcorner.com">drunati@drmhealthcorner.com</a>.</p>
+
+      <h4 class="privacy-sub-title">Changes to This Policy</h4>
+      <p>Black Birth Revolution reserves the right to update or modify this Privacy Policy at any time. Updates will be posted on this page with the revised effective date.</p>
+
+      <h4 class="privacy-sub-title">Contact Information</h4>
+      <p>For questions regarding this Privacy Policy, please contact:<br>
+        <strong>Dr. Unati Makiwane</strong><br>
+        Email: <a href="mailto:drunati@drmhealthcorner.com">drunati@drmhealthcorner.com</a><br>
+        Website: <a href="https://www.drmhealthcorner.com" target="_blank">www.drmhealthcorner.com</a>
+      </p>
+
+      <p class="privacy-copy-line">© 2026 Black Birth Revolution. All Rights Reserved.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Close modal when clicking outside the box
+  document.getElementById('privacy-modal').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('active');
+  });
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.getElementById('privacy-modal').classList.remove('active');
+  });
+</script>
+
+<script>
+  // ── SUBSCRIBE FORM ──
+  function handleSubscribe(e) {
+    e.preventDefault();
+    const email = document.getElementById('subscribe-email').value;
+    if (!email) return;
+
+    const formId = '1FAIpQLSfaE3OECI_HwxY2UgQjRBafd-Gjt6qutREnjVVzVBMG3n-0FQ';
+    const entryId = 'entry.867968531';
+
+    fetch(`https://docs.google.com/forms/d/e/${formId}/formResponse`, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ [entryId]: email })
+    });
+
+    // Show success regardless (no-cors means we can't read the response)
+    document.getElementById('subscribe-form').style.display = 'none';
+    document.getElementById('subscribe-success').style.display = 'block';
+  }
+
+  // ── CURRENCY CONVERTER ──
+  const USD_PRICE = 19.99;
+  let exchangeRates = {};
+
+  const currencySymbols = {
+    USD:'$', CAD:'CA$', GBP:'£', EUR:'€', ZAR:'R',
+    NGN:'₦', GHS:'₵', AUD:'A$', NZD:'NZ$', KES:'KSh',
+    JPY:'¥', INR:'₹'
+  };
+
+  async function fetchRates() {
+    try {
+      const res = await fetch('https://open.er-api.com/v6/latest/USD');
+      const data = await res.json();
+      if (data && data.rates) {
+        exchangeRates = data.rates;
+        document.getElementById('currency-note').textContent = 'Live rate · Updated today';
+        // Auto-detect user currency from browser locale
+        const locale = navigator.language || 'en-US';
+        const detected = new Intl.NumberFormat(locale, { style: 'currency', currency: 'USD' })
+          .resolvedOptions().currency;
+        const select = document.getElementById('currency-select');
+        const options = Array.from(select.options).map(o => o.value);
+        if (options.includes(detected)) {
+          select.value = detected;
+        }
+        convertCurrency();
+      }
+    } catch(err) {
+      document.getElementById('currency-note').textContent = 'Could not load live rates';
+    }
+  }
+
+  function convertCurrency() {
+    const select = document.getElementById('currency-select');
+    const currency = select.value;
+    const result = document.getElementById('currency-result');
+    const note   = document.getElementById('currency-note');
+
+    if (currency === 'USD') {
+      result.textContent = '= $19.99 USD';
+      return;
+    }
+
+    if (!exchangeRates[currency]) {
+      result.textContent = 'Rate unavailable';
+      return;
+    }
+
+    const rate = exchangeRates[currency];
+    const converted = (USD_PRICE * rate).toFixed(2);
+    const symbol = currencySymbols[currency] || currency + ' ';
+    result.textContent = `≈ ${symbol}${converted} ${currency}`;
+    note.textContent = `Based on live USD → ${currency} rate`;
+  }
+
+  // Fetch rates on load
+  fetchRates();
+</script>
 
 </body>
 </html>
