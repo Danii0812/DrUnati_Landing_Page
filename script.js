@@ -34,7 +34,7 @@ text:"Our parents doing, our current realities. As parents or aspiring parents o
 {
 name:"Dr. Sola Olowookere",
 role:"",
-text:"Well done DR M Healt Corner! EAP Nigeria is really looking forward to having you come share your knowledge with us again!!!"
+text:"Well done DR M Health Corner! EAP Nigeria is really looking forward to having you come share your knowledge with us again!!!"
 }
 ];
 
