@@ -285,6 +285,29 @@ nav a:hover {
   color: var(--maroon);
 }
 
+.showcase-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-bn {
+  border-color: #C4975A;
+  color: #C4975A;
+}
+
+.btn-bn:hover {
+  background: #C4975A;
+  color: var(--maroon);
+}
+
+@media (max-width: 480px) {
+  .showcase-btn-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 
 
 
