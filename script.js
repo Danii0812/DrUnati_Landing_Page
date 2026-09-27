@@ -65,3 +65,86 @@ container.innerHTML +=`
 });
 
 }
+
+
+/* ═══════════════════════════════════════
+   PHOTO GALLERY — placeholder fallback
+   Drop a real photo into /images with the
+   matching filename (gallery-01.jpg, etc.)
+   and it will replace the placeholder
+   automatically — no HTML edits needed.
+═══════════════════════════════════════ */
+
+document.querySelectorAll('.photo-item img').forEach((img, i) => {
+  img.addEventListener('error', () => {
+    const placeholder = document.createElement('div');
+    placeholder.className = 'photo-placeholder';
+    placeholder.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">' +
+      '<rect x="3" y="5" width="18" height="14" rx="2"/>' +
+      '<circle cx="8.5" cy="10" r="1.5"/>' +
+      '<path d="M4 16.5l5-5 3.5 3.5 3-3 4.5 4.5"/>' +
+      '</svg>' +
+      `<span>Photo ${i + 1}</span>`;
+    img.replaceWith(placeholder);
+  }, { once: true });
+});
+
+
+/* ═══════════════════════════════════════
+   LIGHTBOX
+═══════════════════════════════════════ */
+
+const galleryItems   = document.querySelectorAll('.photo-item');
+const lightbox        = document.getElementById('lightbox');
+const lightboxContent = document.getElementById('lightbox-content');
+const lightboxCounter = document.getElementById('lightbox-counter');
+
+let currentPhotoIndex = 0;
+
+function updateLightbox() {
+  const item = galleryItems[currentPhotoIndex];
+  lightboxContent.innerHTML = item.innerHTML;
+  lightboxCounter.textContent = `${currentPhotoIndex + 1} / ${galleryItems.length}`;
+}
+
+function openLightbox(index) {
+  currentPhotoIndex = index;
+  updateLightbox();
+  lightbox.classList.add('open');
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+}
+
+function showNextPhoto() {
+  currentPhotoIndex = (currentPhotoIndex + 1) % galleryItems.length;
+  updateLightbox();
+}
+
+function showPrevPhoto() {
+  currentPhotoIndex = (currentPhotoIndex - 1 + galleryItems.length) % galleryItems.length;
+  updateLightbox();
+}
+
+if (lightbox && galleryItems.length) {
+  galleryItems.forEach((item, i) => {
+    item.addEventListener('click', () => openLightbox(i));
+  });
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-next').addEventListener('click', showNextPhoto);
+  document.getElementById('lightbox-prev').addEventListener('click', showPrevPhoto);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowRight') showNextPhoto();
+    if (e.key === 'ArrowLeft')  showPrevPhoto();
+  });
+}
