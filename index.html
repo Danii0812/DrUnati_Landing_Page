@@ -134,6 +134,66 @@ In July 2021, she shared the stage with Dr. Martin Luther King III at the World 
 
   <h2 class="section-heading text-light fade-up">Event Highlights</h2>
 
+  <!-- ── LATEST VIDEOS (portrait) ── -->
+  <div class="latest-wrap fade-up">
+
+    <div class="latest-head">
+      <span class="latest-pill"><i></i>JUST ADDED</span>
+      <h3 class="latest-title">Latest Highlights</h3>
+      <p class="latest-sub">Our newest moments — fresh from the stage</p>
+    </div>
+
+    <div class="latest-grid">
+
+      <div class="latest-item">
+        <span class="latest-badge">NEW</span>
+        <span class="latest-duration">2 min</span>
+        <div class="latest-placeholder">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span>Latest video 1</span>
+        </div>
+        <video controls preload="metadata" playsinline>
+          <source src="images/latest1.mp4#t=1" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="latest-item">
+        <span class="latest-badge">NEW</span>
+        <span class="latest-duration">~1 min</span>
+        <div class="latest-placeholder">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span>Latest video 2</span>
+        </div>
+        <video controls preload="metadata" playsinline>
+          <source src="images/latest2.mp4#t=1" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="latest-item">
+        <span class="latest-badge">NEW</span>
+        <span class="latest-duration">~1 min</span>
+        <div class="latest-placeholder">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span>Latest video 3</span>
+        </div>
+        <video controls preload="metadata" playsinline>
+          <source src="images/latest3.mp4#t=1" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="earlier-label fade-up">
+    <span class="label-rule"></span>
+    <span>EARLIER HIGHLIGHTS</span>
+    <span class="label-rule"></span>
+  </div>
+
   <div class="video-grid fade-up">
 
     <!-- Video 4: TikTok / Portrait -->
@@ -368,6 +428,14 @@ In July 2021, she shared the stage with Dr. Martin Luther King III at the World 
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Latest videos: hide the placeholder once the real video file loads
+  document.querySelectorAll('.latest-item video').forEach(v => {
+    const item = v.closest('.latest-item');
+    const markLoaded = () => item.classList.add('loaded');
+    if (v.readyState >= 1) markLoaded();
+    v.addEventListener('loadedmetadata', markLoaded);
+  });
 
   // Nav scroll effect
   window.addEventListener('scroll', () => {
