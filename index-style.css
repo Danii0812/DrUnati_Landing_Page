@@ -485,7 +485,15 @@ section { padding: 110px 8%; }
 /* Last landscape fills alongside portrait, stretches to match height */
 .vid-landscape-right {
   grid-column: span 1;
-  aspect-ratio: 9 / 16;  /* match portrait height so the row stays clean */
+  aspect-ratio: auto;      /* stretch to the portrait neighbour's row height */
+  display: flex;
+  align-items: center;     /* centre the landscape video, black bars above/below */
+}
+
+.vid-landscape-right video {
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;     /* show the full frame, never crop */
 }
 
 /* ── LATEST VIDEOS (portrait, highlighted) ── */
