@@ -441,16 +441,20 @@ section { padding: 110px 8%; }
 #events .section-label { color: #C4975A; }
 #events .label-rule { background: #C4975A; }
 
-/* ── VIDEO GRID ── */
+/* ── VIDEO GRID ──
+   Ratio-agnostic masonry: every video keeps its own aspect ratio
+   (landscape, portrait, square, anything). To add a video, copy one
+   <div class="video-item"> block in index.html and change the filename.
+   No size/orientation classes needed. */
 
 .video-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 14px;
+  column-count: 2;
+  column-gap: 14px;
 }
 
 .video-item {
+  break-inside: avoid;          /* never split a card across columns */
+  margin-bottom: 14px;
   border-radius: 16px;
   overflow: hidden;
   background: #000;
@@ -458,42 +462,12 @@ section { padding: 110px 8%; }
 }
 
 .video-item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
-}
-
-/* Landscape: full width, 16:9 */
-.vid-landscape {
-  grid-column: span 2;
-  aspect-ratio: 16 / 9;
-}
-
-/* Square: half width, 1:1 */
-.vid-square {
-  grid-column: span 1;
-  aspect-ratio: 1 / 1;
-}
-
-/* TikTok / Portrait: 9:16 — sits in a row with the last landscape */
-.vid-portrait {
-  grid-column: span 1;
-  aspect-ratio: 9 / 16;
-}
-
-/* Last landscape fills alongside portrait, stretches to match height */
-.vid-landscape-right {
-  grid-column: span 1;
-  aspect-ratio: auto;      /* stretch to the portrait neighbour's row height */
-  display: flex;
-  align-items: center;     /* centre the landscape video, black bars above/below */
-}
-
-.vid-landscape-right video {
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;     /* show the full frame, never crop */
+  width: 100%;
+  height: auto;                 /* follow the video's natural ratio */
+  max-height: 80vh;             /* tall portrait clips stay on screen */
+  object-fit: contain;          /* never crop; black bars if capped */
+  background: #000;
 }
 
 /* ── LATEST VIDEOS (portrait, highlighted) ── */
@@ -1170,20 +1144,8 @@ section { padding: 110px 8%; }
 
   /* Video grid: single column on mobile */
   .video-grid {
-    grid-template-columns: 1fr;
+    column-count: 1;
   }
-
-  .vid-landscape,
-  .vid-square,
-  .vid-portrait,
-  .vid-landscape-right {
-    grid-column: span 1;
-  }
-
-  .vid-landscape      { aspect-ratio: 16 / 9; }
-  .vid-square         { aspect-ratio: 1 / 1; }
-  .vid-portrait       { aspect-ratio: 9 / 16; }
-  .vid-landscape-right { aspect-ratio: 16 / 9; }
 
   /* Headings */
   .section-heading { font-size: 32px; }
