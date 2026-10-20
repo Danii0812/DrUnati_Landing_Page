@@ -527,13 +527,24 @@ section { padding: 110px 8%; }
   color: rgba(240, 228, 208, 0.65);
 }
 
+/* One single row, no matter how many videos are added.
+   Items share the width equally (3 videos = 3 big cards, 4 = 4 slightly
+   smaller cards, etc). If there are too many to fit at a readable size
+   (min 170px each), the row scrolls sideways instead of wrapping. */
 .latest-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
   gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(196,151,90,0.5) transparent;
 }
 
 .latest-item {
+  flex: 1 1 0;
+  min-width: 170px;
+  scroll-snap-align: start;
   position: relative;
   aspect-ratio: 9 / 16;
   border-radius: 16px;
